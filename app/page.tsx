@@ -78,13 +78,7 @@ export default function Home() {
 
   return (
     <main className="counter-shell">
-      <header className="brand" aria-label="Red Button">
-        <span className="brand-dot" aria-hidden="true" />
-        <span>RED BUTTON</span>
-      </header>
-
       <section className="counter-stage" aria-labelledby="counter-value">
-        <p className="eyebrow">CURRENT COUNT</p>
         <output id="counter-value" className="count" aria-live="polite" aria-atomic="true">
           {count.toLocaleString()}
         </output>
@@ -107,16 +101,20 @@ export default function Home() {
           <span className="red-wall" aria-hidden="true" />
           <span className="red-cap" aria-hidden="true" />
         </button>
-
-        <p className="hint">버튼을 누르거나 <kbd>Space</kbd></p>
       </section>
 
       <footer className="footer-actions">
-        <Button type="button" variant="outline" size="lg" onClick={reset} className="reset-button">
+        <Button
+          type="button"
+          variant="outline"
+          size="icon-lg"
+          onClick={reset}
+          className="reset-button"
+          aria-label="초기화"
+          title="초기화"
+        >
           <RotateCcw aria-hidden="true" />
-          초기화
         </Button>
-        <span className="esc-hint"><kbd>Esc</kbd>로도 초기화</span>
       </footer>
     </main>
   );
