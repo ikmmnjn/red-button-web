@@ -92,9 +92,16 @@ export default function Home() {
   return (
     <main className="counter-shell">
       <section className="counter-stage" aria-labelledby="counter-value">
-        <output id="counter-value" className="count" aria-live="polite" aria-atomic="true">
+        <button
+          id="counter-value"
+          type="button"
+          className="count"
+          aria-label={`현재 숫자 ${count.toLocaleString()}. 클릭하여 하나 내리기`}
+          title="클릭하여 숫자 하나 내리기"
+          onClick={decrement}
+        >
           {count.toLocaleString()}
-        </output>
+        </button>
 
         <button
           type="button"

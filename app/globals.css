@@ -74,7 +74,8 @@ button { font: inherit; }
   -webkit-user-select: none;
 }
 .counter-stage { display: flex; min-height: 0; flex-direction: column; align-items: center; justify-content: center; padding-block: 1rem; }
-.count { min-height: 1.1em; font-size: clamp(4.5rem,13vw,8rem); font-weight: 790; font-variant-numeric: tabular-nums; letter-spacing: -.065em; line-height: 1; text-align: center; }
+.count { min-height: 1.1em; padding: 0; border: 0; outline: 0; background: transparent; color: inherit; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; font-size: clamp(4.5rem,13vw,8rem); font-weight: 790; font-variant-numeric: tabular-nums; letter-spacing: -.065em; line-height: 1; text-align: center; }
+.count:focus-visible { border-radius: .18em; box-shadow: 0 0 0 5px var(--ring); }
 
 .big-red-button { position: relative; display: block; width: clamp(13.5rem,40vw,18rem); aspect-ratio: 1.48; margin: clamp(1.3rem,3vh,2rem) 0 0; padding: 0; border: 0; outline: 0; background: transparent; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .big-red-button:focus-visible { border-radius: 50%; box-shadow: 0 0 0 5px var(--ring); }
