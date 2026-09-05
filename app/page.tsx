@@ -30,6 +30,14 @@ export default function Home() {
     void keepScreenAwake();
   }, [keepScreenAwake]);
 
+  const decrement = useCallback(() => {
+    setCount((current) => {
+      const next = Math.max(0, current - 1);
+      localStorage.setItem(STORAGE_KEY, String(next));
+      return next;
+    });
+  }, []);
+
   const reset = useCallback(() => {
     setCount(0);
     localStorage.setItem(STORAGE_KEY, '0');
@@ -49,6 +57,11 @@ export default function Home() {
         spaceHeld.current = true;
         setPressed(true);
         increment();
+      }
+      if (event.key === 'Backspace') {
+        event.preventDefault();
+        if (event.repeat) return;
+        decrement();
       }
       if (event.key === 'Escape') {
         event.preventDefault();
@@ -74,7 +87,7 @@ export default function Home() {
       document.removeEventListener('visibilitychange', onVisibilityChange);
       void wakeLock.current?.release();
     };
-  }, [increment, keepScreenAwake, reset]);
+  }, [decrement, increment, keepScreenAwake, reset]);
 
   return (
     <main className="counter-shell">
